@@ -26,9 +26,9 @@ impl <I2C> Iqs231xDriver<I2C> {
     ///
     /// ```rust
     /// use iqs231x_i2c::Iqs231xDriver;
-    /// # let i2c_device = embedded_hal_mock::eh1::i2c::Mock::new(&[]);
+    /// # let i2c_interface = embedded_hal_mock::eh1::i2c::Mock::new(&[]);
     ///
-    /// let sensor = Iqs231xDriver::new(i2c_device);
+    /// let sensor = Iqs231xDriver::new(i2c_interface);
     /// # sensor.release_inner().done();
     /// ```
     pub fn new(i2c: I2C) -> Self {
@@ -49,10 +49,10 @@ impl <I2C> Iqs231xDriver<I2C> {
     ///
     /// ```rust
     /// use iqs231x_i2c::Iqs231xDriver;
-    /// # let i2c_device = embedded_hal_mock::eh1::i2c::Mock::new(&[]);
+    /// # let i2c_interface = embedded_hal_mock::eh1::i2c::Mock::new(&[]);
     ///
     /// let custom_address = 0x45;
-    /// let sensor = Iqs231xDriver::with_address(i2c_device, custom_address);
+    /// let sensor = Iqs231xDriver::with_address(i2c_interface, custom_address);
     ///
     /// assert_eq!(sensor.address(), 0x45u8);
     /// # sensor.release_inner().done();
@@ -75,9 +75,9 @@ impl <I2C> Iqs231xDriver<I2C> {
     /// ```rust
     /// use embedded_hal::i2c::SevenBitAddress;
     /// use iqs231x_i2c::Iqs231xDriver;
-    /// # let i2c_device = embedded_hal_mock::eh1::i2c::Mock::new(&[]);
+    /// # let i2c_interface = embedded_hal_mock::eh1::i2c::Mock::new(&[]);
     ///
-    /// let mut sensor = Iqs231xDriver::new(i2c_device);
+    /// let mut sensor = Iqs231xDriver::new(i2c_interface);
     /// sensor.set_address(SevenBitAddress::from(0x45));
     ///
     /// assert_eq!(sensor.address(), SevenBitAddress::from(0x45));
@@ -99,8 +99,8 @@ impl <I2C> Iqs231xDriver<I2C> {
     /// # use embedded_hal::i2c::SevenBitAddress;
     /// use iqs231x_i2c::Iqs231xDriver;
     ///
-    /// # let i2c_device = embedded_hal_mock::eh1::i2c::Mock::new(&[]);
-    /// let sensor = Iqs231xDriver::with_address(i2c_device, SevenBitAddress::from(0x10));
+    /// # let i2c_interface = embedded_hal_mock::eh1::i2c::Mock::new(&[]);
+    /// let sensor = Iqs231xDriver::with_address(i2c_interface, SevenBitAddress::from(0x10));
     /// assert_eq!(sensor.address(), SevenBitAddress::from(0x10));
     /// # sensor.release_inner().done();
     /// ```
@@ -117,9 +117,9 @@ impl <I2C> Iqs231xDriver<I2C> {
     ///
     /// ```rust
     /// # use iqs231x_i2c::Iqs231xDriver;
-    /// # let i2c_device = embedded_hal_mock::eh1::i2c::Mock::new(&[]);
+    /// # let i2c_interface = embedded_hal_mock::eh1::i2c::Mock::new(&[]);
     ///
-    /// let sensor = Iqs231xDriver::new(i2c_device);
+    /// let sensor = Iqs231xDriver::new(i2c_interface);
     /// // ... use the sensor
     /// let i2c = sensor.release_inner(); // Get back the I2C interface
     /// # let mut i2c = i2c; // .done() requires mut

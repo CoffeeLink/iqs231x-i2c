@@ -1,7 +1,20 @@
 [package]
 name = "iqs231x-i2c"
-version = "0.1.0"
+version = "0.1.1"
+authors = ["CoffeeLink <contact@coffeelink.hu>"]
+
 edition = "2024"
+# rust-version = ""
+
+description = "A driver for the IQS231A/B single channel capacitive proximity/touch controller chipset"
+repository = "https://github.com/CoffeeLink/iqs231x-i2c"
+#documentation = "https://docs.rs/iqs231x-i2c"
+
+keywords = ["embedded-hal", "iqs231x", "iqs231a", "iqs231b", "no_std"]
+categories = ["embedded", "no-std", "no-std::no-alloc", "hardware-support"]
+
+license = "Apache-2.0"
+readme = "README.md"
 
 [features]
 default = ["blocking"]

@@ -2,7 +2,7 @@
 #![no_std]
 
 #[cfg(test)]
-extern crate alloc;
+extern crate alloc; // Only required when running tests
 
 pub mod error;
 pub mod iqs231x;
