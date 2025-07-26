@@ -1,0 +1,19 @@
+[package]
+name = "iqs231x-i2c"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+default = ["blocking"]
+blocking = []
+async = ["dep:embedded-hal-async", "embedded-hal-mock/embedded-hal-async"]
+
+defmt-03 = ["dep:defmt-03", "embedded-hal/defmt-03", "embedded-hal-async/defmt-03"]
+
+[dependencies]
+embedded-hal = { version = "1.0.0", features = [] }
+embedded-hal-async = { version = "1.0.0", features = [], optional = true }
+defmt-03 = { package = "defmt", version = "0.3", optional = true }
+
+[dev-dependencies]
+embedded-hal-mock = { version = "0.11.1", default-features = false, features = ["eh1"] }
